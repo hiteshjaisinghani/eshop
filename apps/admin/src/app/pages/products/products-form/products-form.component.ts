@@ -18,8 +18,12 @@ export class ProductsFormComponent implements OnInit, OnDestroy {
   isSubmitted = false;
   catagories = [];
   imageDisplay: string | ArrayBuffer;
+  imageDisplay2: string[] | ArrayBuffer =[];
   currentProductId: string;
   endsubs$: Subject<any> = new Subject();
+
+
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -52,6 +56,7 @@ export class ProductsFormComponent implements OnInit, OnDestroy {
       description: ['', Validators.required],
       richDescription: [''],
       image: ['', Validators.required],
+      // images: ['', Validators.required],
       isFeatured: [false]
     });
   }
@@ -138,8 +143,11 @@ export class ProductsFormComponent implements OnInit, OnDestroy {
             this.productForm.description.setValue(product.description);
             this.productForm.richDescription.setValue(product.richDescription);
             this.imageDisplay = product.image;
+            // this.imageDisplay2= product.images;
             this.productForm.image.setValidators([]);
             this.productForm.image.updateValueAndValidity();
+            this.productForm.images.setValidators([]);
+            this.productForm.images.updateValueAndValidity();
           });
       }
     });
@@ -175,6 +183,22 @@ export class ProductsFormComponent implements OnInit, OnDestroy {
       fileReader.readAsDataURL(file);
     }
   }
+
+  onImageUpload2(event) {
+
+    const files = event.target.files[0];
+    if (files) {
+      this.form.patchValue({ images: files });
+      this.form.get('images').updateValueAndValidity();
+      const fileReader = new FileReader();
+      fileReader.onload = () =>
+      this.imageDisplay2[0] = fileReader.result;
+
+      fileReader.readAsDataURL(files);
+    }
+  }
+
+
 
   get productForm() {
     return this.form.controls;

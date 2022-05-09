@@ -37,9 +37,9 @@
             <div class="p-grid p-mb-5" *ngFor="let orderItem of order.orderItems">
                 <div class="p-col-2">{{ orderItem.product.name }}</div>
                 <div class="p-col-2">{{ orderItem.product.brand }}</div>
-                <div class="p-col-2">{{ orderItem.product.category.name }}</div>
+                <div class="p-col-2">{{ orderItem.product.category.name}}</div>
                 <div class="p-col-2">{{ orderItem.product.price | currency:'₹':'code'}}</div>
-                <div class="p-col-2">{{ orderItem.quantity }}</div>
+                <div class="p-col-2">{{ orderItem.quantity }} {{ orderItem.product.unit}}</div>
                 <div class="p-col-2">{{ orderItem.product.price * orderItem.quantity | currency:'₹':'code'}}</div>
             </div>
             <div class="p-grid" style="color: green">

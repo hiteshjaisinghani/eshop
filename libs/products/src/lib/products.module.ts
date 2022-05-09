@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { ProductPageComponent } from './pages/product-page/product-page.component';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { UiModule } from '@bluebits/ui';
+import { FilterPipe } from './pipes/filter.pipe';
 
 const routes: Routes = [
   {
@@ -47,7 +48,8 @@ const routes: Routes = [
     ProductItemComponent,
     FeaturedProductsComponent,
     ProductsListComponent,
-    ProductPageComponent
+    ProductPageComponent,
+    FilterPipe
   ],
   exports: [
     ProductsSearchComponent,
@@ -55,7 +57,7 @@ const routes: Routes = [
     ProductItemComponent,
     FeaturedProductsComponent,
     ProductsListComponent,
-    ProductPageComponent
+    ProductPageComponent,FilterPipe
   ]
 })
 export class ProductsModule {}

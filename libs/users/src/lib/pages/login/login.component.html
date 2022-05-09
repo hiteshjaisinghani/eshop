@@ -15,9 +15,8 @@
                                 <input type="text" formControlName="email" pInputText placeholder="Email" />
                             </div>
                             <small *ngIf="loginForm.email.invalid && isSubmitted" class="p-error"><span *ngIf="loginForm.email.errors.required">email is required</span>
-                <span *ngIf="loginForm.email.errors.email">email is invalid</span></small
-              >
-            </div>
+                         <span *ngIf="loginForm.email.errors.email">email is invalid</span></small >
+                      </div>
             <div class="p-col-12">
               <div class="p-inputgroup">
                 <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
@@ -39,6 +38,10 @@
                             <small class="p-error">{{ authMessage }}</small>
                         </div>
                     </div>
+                    <p-button styleClass="full-btn" label="Register" (onClick)="gotoRegister()">
+
+                    </p-button>
+
                 </form>
             </div>
         </div>

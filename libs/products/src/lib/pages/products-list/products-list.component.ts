@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit,Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Category } from '../../models/category';
 import { Product } from '../../models/product';
@@ -14,6 +14,8 @@ export class ProductsListComponent implements OnInit {
   products: Product[] = [];
   categories: Category[] = [];
   isCategoryPage: boolean;
+  @Input() searchword: string;
+  term:string;
 
   constructor(
     private prodService: ProductsService,
@@ -48,4 +50,9 @@ export class ProductsListComponent implements OnInit {
 
     this._getProducts(selectedCategories);
   }
+  Search(){
+    this.term=this.searchword;
+    return this.term;
+  }
 }
+

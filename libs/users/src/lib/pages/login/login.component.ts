@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   authMessage = 'Email or Password are wrong';
 
   constructor(
+
     private formBuilder: FormBuilder,
     private auth: AuthService,
     private localstorageService: LocalstorageService,
@@ -33,6 +34,11 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required]
     });
   }
+
+  gotoRegister(){
+    this.router.navigate(['/products']);
+  }
+
 
   onSubmit() {
     this.isSubmitted = true;

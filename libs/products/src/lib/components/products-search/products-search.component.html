@@ -1,5 +1,7 @@
 <div class="products-search">
     <i class="pi pi-search"></i>
-    <input type="text" placeholder="Find products" class="products-search-input" name="search" id="search" />
+    <input [ngModelOptions]="{standalone: true}" type="text" placeholder="Find products" class="products-search-input" name="search" id="search" [(ngModel)]=" searchword " />
     <!-- ([(ngModel)]="search" ) (ngModelChange="Search()" ) -->
+    <!-- <input [ngModelOptions]="{standalone: true}" placeholder="Search" class="form-control mr-sm-2" type="search" aria-label="Search" [(ngModel)]=" searchword "> -->
+    <button class="btn btn-outline-success my-2 my-sm-0" (click)='Search()' type="submit">Search</button>
 </div>
