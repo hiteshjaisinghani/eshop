@@ -15,6 +15,6 @@ export class FilterPipe implements PipeTransform {
 // }
 transform(Product: any, term: any): any{
   if (term === undefined || term==="" ) return Product;
-  return Product.filter(function (Product) {
+  return Product.filter(function (Product: { name: string; }) {
     return Product.name.toLowerCase().includes(term.toLowerCase());
   })}}

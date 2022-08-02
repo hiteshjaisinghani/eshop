@@ -16,6 +16,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { UiModule } from '@bluebits/ui';
 import { FilterPipe } from './pipes/filter.pipe';
 
+
 const routes: Routes = [
   {
     path: 'products',

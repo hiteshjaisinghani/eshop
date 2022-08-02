@@ -17,6 +17,7 @@ export class CategoriesFormComponent implements OnInit, OnDestroy {
   isSubmitted = false;
   editmode = false;
   currentCategoryId: string;
+  imageDisplay: string | ArrayBuffer;
   endsubs$: Subject<any> = new Subject();
 
   constructor(
@@ -31,6 +32,7 @@ export class CategoriesFormComponent implements OnInit, OnDestroy {
     this.form = this.formBuilder.group({
       name: ['', Validators.required],
       icon: ['', Validators.required],
+      image: ['', Validators.required],
       color: ['#fff']
     });
 
@@ -51,7 +53,8 @@ export class CategoriesFormComponent implements OnInit, OnDestroy {
       id: this.currentCategoryId,
       name: this.categoryForm.name.value,
       icon: this.categoryForm.icon.value,
-      color: this.categoryForm.color.value
+      color: this.categoryForm.color.value,
+      image:this.categoryForm.image.value,
     };
     if (this.editmode) {
       this._updateCategory(category);
@@ -130,9 +133,26 @@ export class CategoriesFormComponent implements OnInit, OnDestroy {
             this.categoryForm.name.setValue(category.name);
             this.categoryForm.icon.setValue(category.icon);
             this.categoryForm.color.setValue(category.color);
+            this.imageDisplay = category.image;
+            this.categoryForm.image.setValidators([]);
+            this.categoryForm.image.updateValueAndValidity();
+            this.categoryForm.images.setValidators([]);
+            this.categoryForm.images.updateValueAndValidity();
           });
       }
     });
+  }
+  onImageUpload(event) {
+    const file = event.target.files[0];
+    if (file) {
+      this.form.patchValue({ image: file });
+      this.form.get('image').updateValueAndValidity();
+      const fileReader = new FileReader();
+      fileReader.onload = () => {
+        this.imageDisplay = fileReader.result;
+      };
+      fileReader.readAsDataURL(file);
+    }
   }
 
   get categoryForm() {

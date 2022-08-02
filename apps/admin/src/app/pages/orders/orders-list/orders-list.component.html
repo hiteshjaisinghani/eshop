@@ -6,6 +6,9 @@
                 <p-table [value]="orders" styleClass="p-datatable-gridlines">
                     <ng-template pTemplate="header">
                         <tr>
+                            <th pSortableColumn="oid">OrderId
+                                <p-sortIcon field="user"></p-sortIcon>
+                            </th>
                             <th pSortableColumn="name">User
                                 <p-sortIcon field="user"></p-sortIcon>
                             </th>
@@ -25,6 +28,7 @@
                     </ng-template>
                     <ng-template pTemplate="body" let-order>
                         <tr>
+                            <td>{{ order.id | slice:22}}</td>
                             <td>{{ order.user.name }}</td>
                             <td>{{ order.totalPrice }}</td>
                             <td>{{ order.dateOrdered | date: 'dd/MM/YYYY hh:mm aa' }}</td>

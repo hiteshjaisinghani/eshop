@@ -11,6 +11,7 @@ import { Product } from '../models/product';
 export class ProductsService {
   apiURLProducts = environment.apiUrl + 'products';
 
+
   constructor(private http: HttpClient) {}
 
   getProducts(categoriesFilter?: string[]): Observable<Product[]> {

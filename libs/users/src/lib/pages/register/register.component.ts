@@ -67,6 +67,10 @@ import { AuthService } from '../../services/auth.service';
     get RegisterForm() {
       return this.RegisterFormGroup.controls;
     }
+
+    gotoRegister(){
+      this.router.navigate(['/products']);
+    }
   }
 
 

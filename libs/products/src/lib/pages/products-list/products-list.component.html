@@ -9,7 +9,7 @@
         </div>
         <div [ngClass]="{ 'p-col-9': !isCategoryPage, 'p-col-12': isCategoryPage }">
             <div class="p-grid" *ngIf="products">
-                <div [ngClass]="{ 'p-col-4': !isCategoryPage, 'p-col-3': isCategoryPage }" *ngFor="let product of products | filter:team">
+                <div [ngClass]="{ 'p-col-4': !isCategoryPage, 'p-col-3': isCategoryPage }" *ngFor="let product of products | filter:Search()">
                     <products-product-item [product]="product"></products-product-item>
                 </div>
             </div>

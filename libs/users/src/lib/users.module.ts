@@ -13,6 +13,7 @@ import { UsersFacade } from './state/users.facade';
 
 import { RegisterComponent } from './pages/register/register.component';
 
+
 const routes: Routes = [
   {
     path: 'login',

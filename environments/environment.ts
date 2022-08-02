@@ -5,6 +5,8 @@
 export const environment = {
     production: false,
     apiUrl: 'http://localhost:3000/api/v1/'
+    // apiUrl: 'https://ngshop-backend-sms.herokuapp.com/api/v1/'
+    // apiUrl:'https://eshop-backend-sms.herokuapp.com/api/v1/'
 };
 
 /*

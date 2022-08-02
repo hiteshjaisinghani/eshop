@@ -14,8 +14,10 @@ export class ProductsListComponent implements OnInit {
   products: Product[] = [];
   categories: Category[] = [];
   isCategoryPage: boolean;
+
   @Input() searchword: string;
-  term:string;
+   term:string= Product.name;
+
 
   constructor(
     private prodService: ProductsService,
@@ -50,7 +52,8 @@ export class ProductsListComponent implements OnInit {
 
     this._getProducts(selectedCategories);
   }
-  Search(){
+ Search(){
+
     this.term=this.searchword;
     return this.term;
   }

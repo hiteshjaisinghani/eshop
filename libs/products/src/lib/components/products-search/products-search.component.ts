@@ -1,7 +1,7 @@
 
 
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
-import { Component, OnInit,Output } from '@angular/core';
+import { Component, EventEmitter, OnInit,Output } from '@angular/core';
 
 @Component({
   selector: 'products-search',
@@ -11,11 +11,19 @@ import { Component, OnInit,Output } from '@angular/core';
 })
 export class ProductsSearchComponent implements OnInit {
   [x: string]: any;
- @Output() searchword: string;
+  searchword:string;
+ @Output() event = new EventEmitter<string>()
 
-  constructor() { }
+  constructor() {
+
+  }
+sendMessage(){
+  this.event.emit(this.searchword)
+}
+
 
   ngOnInit(): void {
+
   }
 
 
@@ -25,7 +33,7 @@ export class ProductsSearchComponent implements OnInit {
   //   if(this.name==""){
   //     this.ngOnInit();
   //   }else{
-  //     this.search=this.Product.filter(res=>{
+  //     this.search=this.Product.filter((res: { name: string; })=>{
   //       return res.name.toLocaleLowerCase().match(this.search.toLocateLowerCase());
   //     })
   //   }

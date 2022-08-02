@@ -19,7 +19,7 @@ import { MessageService } from 'primeng/api';
 import { JwtInterceptor, UsersModule } from '@bluebits/users';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-
+import { AuthService } from '@bluebits/users';
 const routes: Routes = [{ path: '', component: HomePageComponent }];
 
 @NgModule({
@@ -46,7 +46,7 @@ const routes: Routes = [{ path: '', component: HomePageComponent }];
     UsersModule
   ],
   providers: [
-    MessageService,
+    MessageService,AuthService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

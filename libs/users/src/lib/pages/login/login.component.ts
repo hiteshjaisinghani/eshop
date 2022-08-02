@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
   }
 
   gotoRegister(){
-    this.router.navigate(['/products']);
+    this.router.navigate(['/register']);
   }
 
 
@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
       (user) => {
         this.authError = false;
         this.localstorageService.setToken(user.token);
-        this.router.navigate(['/']);
+        this.router.navigate(['/checkout']);
       },
       (error: HttpErrorResponse) => {
         this.authError = true;
